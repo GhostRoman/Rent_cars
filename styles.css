@@ -1,0 +1,238 @@
+/* Основные стили */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #333;
+  background-image: url('img/seo_car-key-replacement.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  color: #007bff;
+  padding-bottom: 1em;
+  text-align: center;
+  
+  width: 100%;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 0 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 1em;
+}
+
+nav ul li a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer */
+footer {
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 2em;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Стили для секций */
+section {
+  margin-bottom: 2em;
+  padding: 1.5em;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+}
+
+section h2 {
+  margin: 0 0 1em 0;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+section div {
+  margin-bottom: 1em;
+}
+
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2em;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  animation: slideIn 0.5s;
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal.hide {
+  opacity: 0;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Формы и кнопки */
+input,
+select {
+  margin-right: 1em;
+  padding: 0.75em;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+button,
+input[type="submit"] {
+  padding: 0.75em 1.5em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Стили для таблиц и списков */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 0.75em;
+  text-align: left;
+}
+
+th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table,
+ul {
+  max-height: 400px; /* Задайте высоту по вашему усмотрению */
+  overflow-y: auto;
+}
+
+/* Стиль для секции статистики */
+#stats {
+  margin-top: 2em;
+}
+
+#stats div {
+  margin-bottom: 2em;
+}
+
+#stats h3 {
+  margin-bottom: 1em;
+  color: #007bff;
+}
+
+#top-cars,
+#top-renters {
+  list-style: none;
+  padding: 0;
+}
+
+#top-cars li,
+#top-renters li {
+  background-color: #fff;
+  margin-bottom: 0.5em;
+  padding: 0.75em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

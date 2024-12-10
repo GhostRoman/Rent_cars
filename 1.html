@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оренда автомобілів</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Оренда автомобілів</h1>
+      <nav>
+        <ul>
+          <li><a href="#" data-section="cars">Автомобілі</a></li>
+          <li><a href="#" data-section="renters">Орендарі</a></li>
+          <li><a href="#" data-section="cards">Оренда</a></li>
+          <li><a href="#" data-section="stats">Статистика</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="cars" class="active">
+        <h2>Автомобілі</h2>
+        <div>
+          <input type="text" id="search" placeholder="Пошук автомобілів..." />
+          <select id="sort">
+            <option value="brand">Марка</option>
+            <option value="model">Модель</option>
+            <option value="year">Рік випуску</option>
+          </select>
+        </div>
+        <table id="car-list">
+          <thead>
+            <tr>
+              <th>Марка</th>
+              <th>Модель</th>
+              <th>Рік випуску</th>
+              <th>Тип кузова</th>
+              <th>Ціна</th>
+              <th>Дії</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Список автомобілів буде тут -->
+          </tbody>
+        </table>
+        <button id="add-car-btn">Додати автомобіль</button>
+      </section>
+
+      <!-- Модальне вікно для додавання автомобіля -->
+      <div id="add-car-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Додати автомобіль</h2>
+          <form id="add-car-form">
+            <label for="add-car-brand">Марка:</label>
+            <input type="text" id="add-car-brand" required />
+
+            <label for="add-car-model">Модель:</label>
+            <input type="text" id="add-car-model" required />
+
+            <label for="add-car-year">Рік:</label>
+            <input type="number" id="add-car-year" required />
+
+            <label for="add-car-body-type">Тип кузова:</label>
+            <input type="text" id="add-car-body-type" required />
+
+            <label for="add-car-price">Ціна:</label>
+            <input type="text" id="add-car-price" required />
+
+            <button type="submit">Додати</button>
+          </form>
+        </div>
+      </div>
+
+      <section id="renters">
+        <h2>Орендарі</h2>
+        <div>
+          <input
+            type="text"
+            id="renter-search"
+            placeholder="Пошук орендарів..."
+          />
+          <select id="renter-sort">
+            <option value="id">Телефон</option>
+            <option value="name">Ім'я</option>
+          </select>
+        </div>
+        <table id="renter-list">
+          <thead>
+            <tr>
+              <th>Ідентифікатор</th>
+              <th>ПІБ</th>
+              <th>Телефон</th>
+              <th>Дії</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Список орендарів буде тут -->
+          </tbody>
+        </table>
+        <button id="add-renter-btn">Додати орендаря</button>
+      </section>
+
+      <!-- Модальне вікно для додавання орендаря -->
+      <div id="add-renter-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Додати орендаря</h2>
+          <form id="add-renter-form">
+            <label for="add-renter-name">Ім'я:</label>
+            <input type="text" id="add-renter-name" required />
+
+            <label for="add-renter-phone">Телефон:</label>
+            <input type="text" id="add-renter-phone" required />
+
+            <button type="submit">Додати</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Модальне вікно для редагування орендаря -->
+      <div id="renter-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Редагувати орендаря</h2>
+          <form id="renter-form">
+            <label for="renter-name">Ім'я:</label>
+            <input type="text" id="renter-name" name="name" required />
+
+            <label for="renter-phone">Телефон:</label>
+            <input type="text" id="renter-phone" name="phone" required />
+
+            <input type="hidden" id="renter-id" name="id" />
+            <button type="submit">Зберегти</button>
+          </form>
+        </div>
+      </div>
+
+      <section id="cards">
+        <h2>Оренда</h2>
+        <div>
+          <button id="issue-car">Видати авто</button>
+        </div>
+        <table id="card-list">
+          <thead>
+            <tr>
+              <th>Ідентифікатор</th>
+              <th>Орендар</th>
+              <th>Автомобіль</th>
+              <th>Дата оренди</th>
+              <th>Дата повернення</th>
+              <th>Дії</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Список карток буде тут -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Модальне вікно для видачі авто -->
+      <div id="issue-car-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Видати авто</h2>
+          <form id="issue-car-form">
+            <label for="issue-car-renter">Орендар:</label>
+            <input
+              type="text"
+              id="issue-car-renter"
+              name="renterName"
+              required
+            />
+
+            <label for="issue-car-car">Автомобіль:</label>
+            <select id="issue-car-car" name="carId" required>
+              <!-- Опції автомобілів будуть тут -->
+            </select>
+
+            <label for="issue-car-rent-date">Дата оренди:</label>
+            <input
+              type="date"
+              id="issue-car-rent-date"
+              name="rentDate"
+              required
+            />
+
+            <label for="issue-car-return-date">Дата повернення:</label>
+            <input type="date" id="issue-car-return-date" name="returnDate" />
+
+            <button type="submit">Видати</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Модальне вікно для редагування картки оренди -->
+      <div id="edit-card-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Редагувати картку оренди</h2>
+          <form id="edit-card-form">
+            <label for="edit-card-renter">Орендар:</label>
+            <select id="edit-card-renter" name="renterId" required></select>
+
+            <label for="edit-card-car">Автомобіль:</label>
+            <select id="edit-card-car" name="carId" required></select>
+
+            <label for="edit-card-rent-date">Дата оренди:</label>
+            <input
+              type="date"
+              id="edit-card-rent-date"
+              name="rentDate"
+              required
+            />
+
+            <label for="edit-card-return-date">Дата повернення:</label>
+            <input type="date" id="edit-card-return-date" name="returnDate" />
+
+            <input type="hidden" id="edit-card-id" name="id" />
+            <button type="submit">Зберегти</button>
+          </form>
+        </div>
+      </div>
+
+      <section id="stats">
+        <h2>Статистика</h2>
+        <div>
+          <h3>5 найпопулярніших авто</h3>
+          <ul id="top-cars">
+            <!-- Список найпопулярніших авто буде тут -->
+          </ul>
+        </div>
+        <div>
+          <h3>5 найактивніших орендарів</h3>
+          <ul id="top-renters">
+            <!-- Список найактивніших орендарів буде тут -->
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2024 Оренда автомобілів</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script src="modal.js"></script>
+  </body>
+</html>
